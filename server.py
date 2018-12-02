@@ -5,6 +5,7 @@ import subprocess
 import string
 import random
 import glob
+from datetime import datetime
 
 # import dilation
 
@@ -50,13 +51,14 @@ def get_result_via_conf_number():
 def get_most_recent_result():
     list_of_files = glob.glob(app.config['RESULTS_FOLDER'] + '*')
     latest_file = max(list_of_files, key = os.path.getctime)
+    most_recent_time = datetime.fromtimestamp(os.path.getctime(latest_file)).strftime('%Y-%m-%d %H:%M:%S')
 
     with open(latest_file) as opened_latest_file:
         results = opened_latest_file.read()
         results = json.loads(results)
         breaking_point = results['breaking_point']
 
-    return str(breaking_point)
+    return "Last modified at %s, getting a score of %d" % (most_recent_time, breaking_point)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
