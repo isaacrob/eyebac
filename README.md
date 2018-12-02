@@ -6,3 +6,8 @@ Means of determining blood alcohol content (BAC) as a prerequisite to starting a
 
 # Summary
 While under the influence of alcohol, an individual's pupil dilation and contraction is slowed. This slowing increases with the degree of intoxication. Measuring the extent to which this dilation is slowed can be employed as a means of measuring intoxication, which can be employed as a proxy for BAC for the sake of determining whether or not someone should be allowed to start a car. To achieve this end, this invention uses a smartphone camera to record a video of the driver's eye while flashing the camera's light at increasing frequency. The frequency at which the eye's pupil dilation can no longer keep up with the flashing light will correspond to its dilation time, and therefore the driver's BAC. While processing this video, it is possible to do iris-based biometric identity verification in a way that is not separable from the measurement of BAC. So this measurement is both tied to one's identity inherently and can be done with a smartphone, which is something most people have access to.
+
+# What We Did
+This is the backend code for our YHack submission. It is currently running in an AWS EC2 instance. It accepts a video from the frontend which flashes a light at increasing frequency into someone's eye. It then processes this video, determines pupil dilation in each frame, the rate at which the pupil dilation changes, and the flash at which the dilation is unable to keep up. This is correlated with BAC. This backend can also create a stable image of the iris for each frame that is dilation-insensative via some computer vision tricks and a polar warp.
+
+![Alt text](warped_iris.png?raw=True "Stable Iris Example")
