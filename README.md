@@ -11,3 +11,6 @@ While under the influence of alcohol, an individual's pupil dilation and contrac
 This is the backend code for our YHack submission. It is currently running in an AWS EC2 instance. It accepts a video from the frontend which flashes a light at increasing frequency into someone's eye. It then processes this video, determines pupil dilation in each frame, the rate at which the pupil dilation changes, and the flash at which the dilation is unable to keep up. This is correlated with BAC. This backend can also create a stable image of the iris for each frame that is dilation-insensative via some computer vision tricks and a polar warp.
 
 ![Alt text](warped_iris.png?raw=True "Stable Iris Example")
+
+# How You Can Use It
+You need to ask one of us (Isaac Robinson <isaac.robinson@yale.edu> or Brandon Canfield <brandon.canfield@yale.edu>) for the frontend application which will do the flashing and recording. Then you can see your score at <http://beepboopresearch.com/get_most_recent>, which just posts the score for the most recent submission. We didn't have time to make score reporting happen in the app.
